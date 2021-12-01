@@ -9,11 +9,11 @@ class heap
     {
         if (min_heap)
         {
-            return ch_ele < par_ele; //If parent ele is greater, then we'll swap becoz in min heap top ele must be smaller
+            return ch_ele < par_ele; // If parent ele is greater, then we'll swap becoz in min heap top ele must be smaller
         }
         else
         {
-            return ch_ele > par_ele; //If parent ele is smaller, then we'll swap becoz in max heap top ele must be greater
+            return ch_ele > par_ele; // If parent ele is smaller, then we'll swap becoz in max heap top ele must be greater
         }
     }
     void heapify(int ind)
@@ -25,28 +25,28 @@ class heap
         int last_ind = vt.size() - 1;
         if (left <= last_ind && compare(vt[left], vt[ind]))
         {
-            min_ind = left; //checking top and left ind ele
+            min_ind = left; // checking top and left ind ele
         }
         if (right <= last_ind && compare(vt[right], vt[min_ind]))
         {
-            min_ind = right; //checking min_ind ele and right ind ele
+            min_ind = right; // checking min_ind ele and right ind ele
         }
 
-        if (min_ind != ind) //this will also act as base case becoz this is only calling again
+        if (min_ind != ind) // this will also act as base case becoz this is only calling again
         {
             swap(vt[min_ind], vt[ind]);
-            heapify(min_ind); //using  this we are going deeper in tree
+            heapify(min_ind); // using  this we are going deeper in tree
         }
     }
 
 public:
-    heap(bool type = true, int default_size = 10) //CONSTRUCTOR
+    heap(bool type = true, int default_size = 10) // CONSTRUCTOR
     {
         vt.reserve(default_size);
         vt.push_back(-1);
-        min_heap = type; //bydefault minheap
+        min_heap = type; // bydefault minheap
     }
-    void push(int ele) //O(log N)
+    void push(int ele) // O(log N)
     {
         vt.push_back(ele);
         int ind = vt.size() - 1;
@@ -56,7 +56,7 @@ public:
         {
             swap(vt[ind], vt[parent_ind]);
             ind = parent_ind;
-            parent_ind = parent_ind / 2; //the last index which will become parent is 1 index becoz child ind can't be equal to 1 the last index for child is 2.
+            parent_ind = parent_ind / 2; // the last index which will become parent is 1 index becoz child ind can't be equal to 1 the last index for child is 2.
         }
     }
     int top()
@@ -64,10 +64,11 @@ public:
         return vt[1];
     }
 
-    void pop() //O(log N)
+    void pop() // O(log N)
     {
         int last = vt.size() - 1;
-        swap(vt[last], vt[1]); //swap 1st and lst ele of heap
+        // swap(vt[last], vt[1]); swapping is req in heap sort where we need the removed ele
+        vt[1] = vt[last];
         vt.pop_back();
 
         heapify(1);
@@ -79,12 +80,12 @@ public:
 };
 int main()
 {
-    heap h(0, 6); //1 for min heap
+    heap h(0, 5); // 1 for min heap
     int n;
-    //if we'll start vector from index 0 it's children will become 1 and 0
-    //as 2*0 is 0 and 2*0+1 is 1 so we are having 1 less children node
-    //so start vector from 1 so that it will become
-    //2*1=2(left node) and 2*1+1=3(right node)
+    // if we'll start vector from index 0 it's children will become 1 and 0
+    // as 2*0 is 0 and 2*0+1 is 1 so we are having 1 less children node
+    // so start vector from 1 so that it will become
+    // 2*1=2(left node) and 2*1+1=3(right node)
     cin >> n;
     for (int i = 0; i < n; i++)
     {
