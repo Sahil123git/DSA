@@ -24,8 +24,8 @@ public:
     {
         for (int i = 0; i < len; i++)
         {
-            cout << i << "-->";   //every i is having it's own list
-            for (auto it : li[i]) //for printing i's list
+            cout << i << "-->";   // every i is having it's own list
+            for (auto it : li[i]) // for printing i's list
             {
                 cout << it << ",";
             }
@@ -44,8 +44,8 @@ public:
         queue<int> qu;
         qu.push(source);
         chkr[source] = 1;
-        dist[source] = 0;
-        parent[source] = 0;
+        dist[source] = 0; // by def dist will be 0
+        // parent[source] = 0;
         while (!qu.empty())
         {
             int frnt = qu.front();
@@ -58,13 +58,14 @@ public:
                 {
                     chkr[it] = 1;
                     qu.push(it);
-                    dist[it] = dist[frnt] + 1; //this all we are storing in the arr dist arr there is no list
-                    parent[it] = frnt;
+                    dist[it] = dist[frnt] + 1; 
+                    // The dist of every node is equal to its (par dist + 1)
+                    // parent[it] = frnt;
                 }
             }
         }
         cout << endl;
-        for (int i = 0; i < len; i++) //for dist
+        for (int i = 0; i < len; i++) // for dist
         {
             cout << "shortest path from 0: " << dist[i] << endl;
         }
@@ -72,10 +73,10 @@ public:
 };
 int main()
 {
-    graph g(4); //can only 3 vertices
+    graph g(4); // can only 3 vertices
     g.add_edge(1, 2);
     g.add_edge(0, 1);
     g.add_edge(1, 3);
     g.print();
-    g.bfs(0); //starting pt is 0
+    g.bfs(0); // starting pt is 0
 }
