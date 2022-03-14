@@ -14,7 +14,7 @@ void subString(string s, int n)
 // Driver program to test above function
 int main()
 {
-    string s = "abcd";
+    string s = "abcd";  //T.C : O(N^3)
     subString(s, s.length());
     return 0;
 }
