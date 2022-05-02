@@ -1,5 +1,5 @@
-#include <iostream>
-using namespace std;
+#include <iostream>                         //https://leetcode.com/problems/climbing-stairs/
+using namespace std;                        // Ques : num of ways to reach nth stair
 int ladder_top_down(int n, int k, int dp[]) // TC-O(N.k)  SC-O(N)
 {
     if (n == 0)
