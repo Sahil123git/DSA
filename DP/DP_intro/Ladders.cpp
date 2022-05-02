@@ -1,5 +1,5 @@
 #include <iostream>                         //https://leetcode.com/problems/climbing-stairs/
-using namespace std;                        // Ques : num of ways to reach nth stair
+using namespace std;                        // num of ways to reach nth stair
 int ladder_top_down(int n, int k, int dp[]) // TC-O(N.k)  SC-O(N)
 {
     if (n == 0)
@@ -11,14 +11,14 @@ int ladder_top_down(int n, int k, int dp[]) // TC-O(N.k)  SC-O(N)
         return dp[n];
     }
     int ways_cnt = 0;
-    for (int i = 1; i <= k; i++)
+    for (int i = 1; i <= k; i++) // through this loop we are chkng all pos from 1 to k
     {
         if (n - i >= 0)
         {
-            ways_cnt += ladder_top_down(n - i, k, dp);
+            ways_cnt += ladder_top_down(n - i, k, dp); // dec n by i and sndng as argument to another func
         }
     }
-    return dp[n] = ways_cnt;
+    return dp[n] = ways_cnt; // memoizing ans
 }
 int ladder_bottom_top(int n, int k, int dp[])
 {
