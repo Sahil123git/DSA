@@ -54,7 +54,7 @@ public:
 
 class Graph
 {
-    vector<vector<int>> edgeList;
+    vector<vector<int>> edgeList; // one edge is having 3 things weight, nodes that are present in both ends of edge
     int v;
 
 public:
@@ -73,16 +73,16 @@ public:
         sort(edgeList.begin(), edgeList.end()); // here we r sorting acc to weight
         DSU s(v);
         int weight = 0;
-        for (auto it : edgeList)
+        for (auto it : edgeList) // chk all nodes of edge list
         {
             int wt = it[0];
             int x = it[1];
             int y = it[2];
 
-            if (s.find(x) != s.find(y))
+            if (s.find(x) != s.find(y)) // if root lvl par of both nodes is diff then only add it's weight
             {
                 weight += wt;
-                s.unionSet(x, y);
+                s.unionSet(x, y); // now make par of x and y same
             }
         }
         return weight;
