@@ -10,7 +10,8 @@ void Sieve()
     }
     for (int i = 2; i * i <= n; i++)
     {
-        if (pf[i] == i) // cur i can mark nums from (i*i till n)
+        if (pf[i] == i) // these are prime num which will mark other nums
+        // cur i can mark nums from (i*i till n)
         {
             for (int j = i * i; j <= n; j += i)
             {
@@ -29,7 +30,7 @@ int main()
     int n = 1024;
 
     int nm = n;
-    while (nm != 1) // O(log n) 
+    while (nm != 1) // O(log n)
     {
         cout << pf[nm] << " ";
         nm = nm / pf[nm];
