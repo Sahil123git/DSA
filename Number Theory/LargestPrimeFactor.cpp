@@ -10,6 +10,7 @@ find all num inclusive st and end whose smallest prime factor and largest prime 
 */
 #include <bits/stdc++.h>
 using namespace std;
+#define int long long
 int n = 100000;
 int pf[100001];
 
@@ -85,7 +86,7 @@ void fillLargestPFctrArr(vector<int> &vc) // finding largest prime factors
     }
 }
 
-int main()
+int32_t main()
 {
     int t;
     cin >> t;
