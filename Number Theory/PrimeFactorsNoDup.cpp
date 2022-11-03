@@ -20,8 +20,9 @@ void solve()
             n /= i;
         }
     }
-    if (n > 1)
+    if (n > 1) // left out prime num
     {
+        // cout << n << endl;
         pr.push_back(n);
     }
     for (auto it : pr)
