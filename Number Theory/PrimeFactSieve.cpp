@@ -8,7 +8,7 @@ void Sieve()
     {
         pf[i] = i;
     }
-    for (int i = 2; i * i <= n; i++)
+    for (int i = 2; i * i <= n; i++) // we'll mark till i*i <= n becoz if a num's square is greater than n, it will start marking from n + 1 but we need till n.
     {
         if (pf[i] == i) // these are prime num which will mark other nums
         // cur i can mark nums from (i*i till n)
