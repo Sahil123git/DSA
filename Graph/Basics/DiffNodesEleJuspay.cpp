@@ -13,7 +13,7 @@ Below is the Implementation using map<int, vector<int>> adj*/
 #include <bits/stdc++.h>
 using namespace std;
 
-void isConnected(map<int, vector<int>> &adj, int node, map<int, bool> &vstd)
+void isConnected(map<int, vector<int>> &adj, int node, map<int, bool> &vstd) //fndng if there is way or not using DFS if dest node is vstd then means there is way
 {
     for (int i = 0; i < adj[node].size(); i++)
     {
@@ -68,11 +68,11 @@ int main()
     vstd[src] = 1;
     isConnected(adj, src, vstd);
 
-    if (vstd[dest])
+    if (vstd[dest]) // vstd means there is way
     {
         cout << 1;
     }
-    else
+    else // means no way
     {
         cout << 0;
     }
