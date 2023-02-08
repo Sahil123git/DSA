@@ -1,7 +1,6 @@
 /*We have to find is there any way from source node to dest node here nodes in graph can any num
 one way is to use map<int, vector<int>> adj or map every node to numbering (0 - n)
 Below is the Implementation using map<int, vector<int>> adj*/
-
 /*Test Case
  4
  2 5 7 9
@@ -13,6 +12,7 @@ Below is the Implementation using map<int, vector<int>> adj*/
 
 #include <bits/stdc++.h>
 using namespace std;
+
 void isConnected(map<int, vector<int>> &adj, int node, map<int, bool> &vstd)
 {
     for (int i = 0; i < adj[node].size(); i++)
@@ -51,6 +51,17 @@ int main()
 
         adj[src].push_back(dest);
     }
+
+    for (auto it : adj) //printing adj list 
+    {
+        cout << it.first << "-> ";
+        for (auto itt : it.second)
+        {
+            cout << itt << " ";
+        }
+        cout << endl;
+    }
+
     int src, dest;
     cin >> src >> dest;
 
@@ -58,7 +69,11 @@ int main()
     isConnected(adj, src, vstd);
 
     if (vstd[dest])
+    {
         cout << 1;
+    }
     else
+    {
         cout << 0;
+    }
 }
